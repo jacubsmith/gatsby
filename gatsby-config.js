@@ -4,6 +4,13 @@ module.exports = {
 		desc: 'When Spiderman ran out of films',
 	},
 	plugins: [
+		{
+			resolve: 'gatsby-source-contentful',
+			options: {
+				spaceId: 'xb49wz8s9f03',
+				accessToken: '59758c100e8fe2793adfa78cefc0fc10ecc26704c7e3bca5e3ce39de2e05b701',
+			},
+		},
 		'gatsby-plugin-react-helmet',
 		'gatsby-plugin-styled-components',
 		{
@@ -20,13 +27,8 @@ module.exports = {
 				path: `${__dirname}/src/images`,
 			},
 		},
-		{
-			resolve: 'gatsby-transformer-remark',
-			options: {
-				excerpt_separator: '<-- end -->',
-			},
-		},
 		'gatsby-plugin-sharp',
 		'gatsby-transformer-sharp',
+		'gatsby-transformer-remark',
 	],
 };

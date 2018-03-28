@@ -31,6 +31,7 @@ module.exports = {
 		'react/prop-type': 0,
 		'react/no-danger': 0,
 		"react/jsx-indent-props":[2, 'tab'],
-		'no-return-assign': 0
+		'no-return-assign': 0,
+		'react/prefer-stateless-function': 0
 	},
 };

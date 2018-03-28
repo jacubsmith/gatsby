@@ -5,9 +5,9 @@ class PostPage extends Component {
 		const { data } = this.props;
 		return (
 			<div>
-				<h1>{data.markdownRemark.frontmatter.title}</h1>
+				<h1>{data.contentfulBlogPost.title}</h1>
 				<div dangerouslySetInnerHTML={{
-					__html: data.markdownRemark.html,
+					__html: data.contentfulBlogPost.body.childMarkdownRemark.html,
 				}}
 				/>
 			</div>
@@ -19,12 +19,16 @@ export default PostPage;
 
 export const query = graphql`
 	query BlogPostQuery($slug: String!) {
-		markdownRemark(fields: { slug: { eq: $slug }}) {
-			excerpt
-			frontmatter {
-				title
-			}
-			html
+		contentfulBlogPost(slug: {eq: $slug}) {
+			title
+			body {
+				childMarkdownRemark {
+						html
+						excerpt
+					}
+				}
+			slug
+			id
 		}
 	}
 `;
